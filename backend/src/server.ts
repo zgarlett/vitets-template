@@ -14,6 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // Error handling middleware
 app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
+  void _next
   console.error(err.stack)
   res.status(500).json({ error: err.message })
 })
